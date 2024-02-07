@@ -1,0 +1,23 @@
+# aliases
+# ddev laravel
+alias dda="ddev exec php artisan"
+alias ddt="ddev artisan test"
+alias ddx="ddev xdebug && ddev artisan test"
+alias ddd="ddev xdebug off && ddev artisan test"
+
+# Symfony
+alias bic="php bin/console"
+# ddev  symfony
+alias ddb="ddev exec bin/console"
+
+# pallino style script
+alias ch-stl="build/test_style.sh"
+
+#ddev checkers
+alias ddfix="ddev exec ./vendor/bin/php-cs-fixer fix -vvv --show-progress=dots"
+alias ddunit="ddev exec ./vendor/bin/phpunit"
+alias ddstl="ddev exec ./build/test_style.sh"
+
+#ddev general
+alias ddboot="dk && ddev start && ddev auth ssh"
+alias ddauth="ddev start && ddev auth ssh"

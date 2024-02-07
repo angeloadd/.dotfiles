@@ -1,0 +1,12 @@
+<templateSet group="PHP">
+  <template name="test" value="/**&#10; * Assert the absolute truth.&#10; *&#10; * @test&#10; * @testdox Assert the absolute truth.&#10; * @covers&#10; * @dataProvider&#10; *&#10; * @return void&#10; */&#10;public function it_tests_something(): void&#10;{&#10;    $this-&gt;assertTrue(true);&#10;}" description="Snippet for test in phpunit" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="PHP" value="true" />
+    </context>
+  </template>
+  <template name="tryca" value="try {&#10;    //TODO: stub try catch&#10;} catch (Exception $e) {&#10;}" description="Snippet for try catch block" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="PHP" value="true" />
+    </context>
+  </template>
+</templateSet>

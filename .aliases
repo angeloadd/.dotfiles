@@ -1,0 +1,75 @@
+#ALIASES
+
+# moving in FS
+alias ll="ls -laF"
+alias ..="cd .."
+alias ...="cd ../.."
+
+# switch shell type
+alias swbash="chsh -s /bin/bash"
+alias swzsh="chsh -s /bin/zsh"
+
+# source shell profile
+alias bs="source ~/.bash_profile"
+alias zs="source ~/.zshrc"
+
+#programms
+
+alias dcu="docker-compose up"
+alias dcd="docker-compose down"
+
+# Open editor alias:
+# PhpStorm:
+alias pstorm="open -a PhpStorm"
+# other future editors
+
+# Dotfiles open in editor:
+# phpstorm
+alias pdot="pstorm ~/.dotfiles"
+# visual studio code
+alias codedot="code ~/.dotfiles"
+
+# Laravel
+alias pa="php artisan"
+alias pas="pa serve"
+alias fresh="pa migrate:fresh"
+alias seed="pa db:seed"
+
+# Miscellaneous
+
+# Recursively delete `.DS_Store` files
+alias cleanDS="find /Volumes/CaseSensitive/{wa,src} -type f -name '*.DS_Store' -ls -delete"
+
+# Show/hide hidden files in Finder
+alias show="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
+alias hide="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
+
+alias zerovol="osascript -e 'set volume output muted true'"
+alias halfvol="osascript -e 'set volume output volume 50'"
+alias maxvol="osascript -e 'set volume output volume 100'"
+
+# Enable and disable xdebug using script in .dotfiles
+alias xdebug="~/.dotfiles/scripts/js/xdebug.js"
+alias xunit="XDEBUG_SESSION=1 vendor/bin/phpunit"
+alias xtest="XDEBUG_SESSION=1 vendor/bin/phpunit"
+alias xltest="XDEBUG_SESSION=1 php artisan test"
+
+# Switch php
+alias swphp="~/.dotfiles/scripts/js/phpversion.js"
+
+# Docker compose
+alias dockup="docker compose up -d"
+
+# Git Aliases
+alias gcm="git commit -m"
+alias gall="git add ."
+alias ga="git add"
+alias wip="git add . && git commit -m'Wip'"
+
+# Check port
+# put lsof qua
+
+alias vim="nvim"
+alias intvim="int ~/.config/nvim"
+alias vimdot="cd ~/.dotfiles && vim ~/.dotfiles"
+alias vimn="cd ~/.config/nvim && vim ~/.config/nvim"

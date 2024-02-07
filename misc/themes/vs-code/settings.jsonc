@@ -1,0 +1,36 @@
+{
+    "liveServer.settings.CustomBrowser": "chrome",
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "workbench.colorTheme": "Dracula",
+    "window.zoomLevel": 1,
+    // Set the default
+    "editor.formatOnSave": false,
+    "emmet.includeLanguages": {
+      "javascript": "javascriptreact"
+    },
+    "emmet.triggerExpansionOnTab": true,
+    "[javascript]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode",
+      "editor.formatOnSave": true
+    },
+    "[css]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[json]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[jsonc]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "workbench.iconTheme": "material-icon-theme",
+    "terminal.integrated.fontFamily": "Hack Nerd Font",
+    "editor.fontFamily": "Hack Nerd Font"
+    /* "editor.codeActionsOnSave": {
+          "source.fixAll.eslint": true
+        },
+      "eslint.validate": ["javascript"],
+      "editor.formatOnSave": true, 
+      "eslint.alwaysShowStatus": true,  */
+  }
+  

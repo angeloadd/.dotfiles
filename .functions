@@ -1,0 +1,44 @@
+mkcd() {
+  mkdir -p $1 &&
+  cd $1
+}
+
+phpini() {
+  php --ini | grep "Loaded Configuration File: "
+}
+
+puf() {
+  phpunit --filter $1
+}
+
+puts() {
+  case $1 in
+    "-i") phpunit --testsuite integration;;
+    "-u") phpunit --testsuite unit;;
+    "-a") phpunit --testsuite unit;;
+    *) phpunit --testsuite $1;;
+  esac
+}
+
+enc(){
+  openssl enc -aes-256-cbc -salt -a -in ./enc/dec/$1 -out ./enc/$1.enc
+}
+dec(){
+  openssl enc -d -aes-256-cbc -a -in ./enc/$1.enc -out ./enc/dec/$1
+}
+
+# need fzf as dep
+look(){
+	DIR=$(find /V*/C*/{src,wa} -maxdepth 1 -type d | fzf --print0 | xargs echo)
+
+	if [ -n "$DIR" ]; then
+      cd $DIR
+	fi
+}
+
+source ~/.dotfiles/.gitfunc
+
+# Start colima and enable writing to src folder to be able to sync filesystems
+initcol(){
+ colima start --mount /Volumes/CaseSensitive/src:w --very-verbose --vm-type=vz --mount-type=virtiofs
+}

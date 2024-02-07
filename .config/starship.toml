@@ -1,0 +1,170 @@
+# Base format:
+# - custom.git_clean after git branch
+# - fill and time moved after command duration to appear on right side of prompt
+format = """
+$username\
+$hostname\
+$shlvl\
+$singularity\
+$kubernetes\
+$directory\
+$vcsh\
+$git_branch${custom.git_clean}\
+$git_commit\
+$git_state\
+$git_metrics\
+$git_status\
+$hg_branch\
+$docker_context\
+$package\
+$cmake\
+$cobol\
+$dart\
+$deno\
+$dotnet\
+$elixir\
+$elm\
+$erlang\
+$golang\
+$helm\
+$java\
+$julia\
+$kotlin\
+$lua\
+$nim\
+$nodejs\
+$ocaml\
+$perl\
+$php\
+$pulumi\
+$purescript\
+$python\
+$rlang\
+$red\
+$ruby\
+$rust\
+$scala\
+$swift\
+$terraform\
+$vlang\
+$vagrant\
+$zig\
+$nix_shell\
+$conda\
+$memory_usage\
+$aws\
+$gcloud\
+$openstack\
+$azure\
+$env_var\
+$crystal\
+$sudo\
+$cmd_duration\
+$line_break\
+$jobs\
+$battery\
+$status\
+$shell\
+$character\
+"""
+
+# Put time prompt on the right
+right_format="""$time"""
+
+# Wait 1 second for starship to run a command in current directory.
+command_timeout = 1000
+
+# Disable the blank line at the start of the prompt.
+add_newline = false
+
+# Prompt command line start. Checks if previous command was successful.
+[character]
+error_symbol = "[](bold red)"
+success_symbol = "[](bold green)"
+
+# Shows duration of a command if it is more then 10 seconds.
+[cmd_duration]
+min_time = 10_000
+format = " [  ](green)took [$duration]($style) "
+
+# Fixed Username non Machine User
+[username]
+format = "[Angelo]($style)[  ](green)"
+show_always = true
+style_user = "bold 230"
+
+# Directory style, shows only working directory.
+[directory]
+format = "[$path]($style)[$read_only]($read_only_style)"
+style = "fg:225"
+truncation_length = 1
+
+# Branch part of the prompt.
+[git_branch]
+format = " [ ](green)[$symbol$branch]($style)"
+symbol = "󰊢 "
+style = "50"
+
+# Pretty self-explanatory.
+[git_status]
+format = " $ahead_behind$untracked$deleted$modified$renamed$staged$conflicted$stashed"
+ahead = "🐇"
+behind = "🐢"
+diverged = "💔"
+up_to_date = ""
+modified = "[${count} ](cyan)"
+deleted = "[${count} ](red)"
+renamed = "[${count} ](purple)"
+staged = "[${count}  ](yellow)"
+untracked = "[${count} ](green)"
+conflicted = "⚔️"
+stashed = "🧰"
+
+### Language format in prompt ###
+
+# PHP repo.
+[php]
+format = "[  ](green)[$symbol($version)]($style)"
+symbol = " "
+
+# Node and Javascript repo.
+[nodejs]
+format = "[  ](green)[$symbol($version)]($style)"
+symbol = "󰎙"
+
+# Python repo.
+[python]
+format = "[  ](green)[$symbol($version)]($style)"
+
+# Java repo.
+[java]
+format = "[  ](green)[$symbol($version)]($style)"
+
+# Lua repo.
+[lua]
+format = "[  ](green)[$symbol($version)]($style)"
+
+# Go repo.
+[golang]
+format = "[  ](green)[$symbol($version)]($style)"
+
+# Custom format for clean Git repo.
+[custom.git_clean]
+format = "$symbol"
+symbol = "[](226)"
+when = """
+git rev-parse --git-dir > /dev/null 2>&1 && [ -z "$(git status --porcelain)" ] && [ "$(pwd)" = "$(git rev-parse --show-toplevel)" ]
+"""
+
+# Time displayed on right of prompt.
+[time]
+disabled = false
+format = '[ $time]($style)'
+style = "230"
+
+# Disable package (project) version.
+[package]
+disabled = true
+
+[gcloud]
+disabled = true

@@ -1,0 +1,45 @@
+#aliases
+alias bs="source ~/.bashrc"
+alias pa="php artisan"
+alias pas="php artisan serve"
+
+alias fix="./vendor/bin/php-cs-fixer fix -vvv --show-progress=dots"
+alias stan="composer phpstan:analyse -- -n"
+alias stand="composer phpstan:deprecation:analyse -- -n"
+alias stanq="composer phpstan:analyse -- -n"
+alias stann="composer phpstan:next -- -n"
+alias cinstall="composer install -n"
+
+alias runServer="supervisord -c /etc/supervisord.conf"
+
+alias bumpv="php ~/.dotfiles/work/allmyhomes/bumpv.php"
+
+# functions
+copybs() {
+    cp ~/.dotfiles/work/allmyhomes/utils ./.bashrc
+}
+
+cdcs() {
+    cd /Volumes/CaseSensitive/wa || exit
+}
+
+puf() {
+  phpunit --filter $1
+}
+
+puts() {
+  case $1 in
+    "-i") phpunit --testsuite integration;;
+    "-u") phpunit --testsuite unit;;
+    "-a") phpunit --testsuite api;;
+    *) phpunit --testsuite $1;;
+  esac
+}
+
+addsugg() {
+  apk add gawk
+  git clone --recursive https://github.com/akinomyoga/ble.sh.git
+  make -C ble.sh
+  ehco "source ble.sh/out/ble.sh" >> .bashrc
+  source .bashrc
+}

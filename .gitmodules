@@ -1,0 +1,7 @@
+[submodule "nvim"]
+	path = .config/nvim
+	url = git@github.com:angeloadd/nvim.git
+[submodule "stuff"]
+	path = misc/stuff
+	branch=main
+	url = git@github.com:angeloadd/stuff.git

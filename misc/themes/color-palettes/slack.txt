@@ -1,0 +1,5 @@
+Dracula theme for slack
+For further info check dracula theme site https://draculatheme.com/slack
+
+Type in a random chat this color palette to change theme
+#282A36,#44475A,#44475A,#8BE9FD,#6272A4,#FFFFFF,#50FA7B,#FF5555

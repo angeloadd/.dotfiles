@@ -1,0 +1,4 @@
+for d in ~/.dotfiles/.work/*/ ; do
+    [ -L "${d%/}" ] && continue
+    [[ -f "${d}/utils" ]] && source "${d}/utils"
+done

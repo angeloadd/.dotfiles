@@ -1,0 +1,82 @@
+gitdelete() {
+  git fetch
+
+  # Loop through all local branches
+  for branch in $(git for-each-ref --format='%(refname:short)' refs/heads/); do
+      # Check if the branch exists on the remote
+      if ! git show-branch "origin/${branch}" &>/dev/null; then
+          # If the branch does not exist on the remote, delete it
+          git branch -D "${branch}"
+      fi
+  done
+}
+
+gitcur(){
+  # custom implementation
+  # git branch -a | grep "*" | cut -d' ' -f 2
+  # official one
+  git rev-parse --abbrev-ref HEAD
+}
+
+gitdelcur(){
+  CURRENT=$(gitcur)
+  if [[ "$CURRENT" == 'develop' || "$CURRENT" == 'master' || "$CURRENT" == 'main' ]]; then
+    echo "Cannot delete $CURRENT branch"
+    return
+  fi
+
+  if ! gitdev &>/dev/null ; then
+    if ! gitm i &>/dev/null; then
+      gitm &>dev/null
+    fi
+  fi
+  echo "Deleting $CURRENT"
+  git branch -D $CURRENT
+}
+
+clone() {
+  BASEPATH="/Volumes/CaseSensitive/"
+  if [[ $# -eq 0 ]]; then
+    echo 'You should provide at least one argument, the link to the repository you want to clone'
+  elif [[ $# -eq 1 ]]; then
+    cd "$BASEPATH"wa
+    git clone "$1"
+    GIT_REPO=$(echo "$1" | cut -d'/' -f 2 | cut -d'.' -f 1)
+    echo $GIT_REPO
+    cd "$GIT_REPO"
+    return 0
+  elif [[ $# -eq 2 ]]; then
+
+    OVERWRITE=""
+    case $1 in
+      -w)
+        WORKDIR='wa'
+      ;;
+      -s)
+        WORKDIR='src'
+      ;;
+      "-o="*)
+        OVERWRITE=$(echo "$1" | cut -d'=' -f 2)
+        ;;
+      *)
+        echo "invalid argument"
+        return 1
+    esac
+    if [[ ! -z "$OVERWRITE" ]]; then
+      cd "$OVERWRITE"
+      git clone "$2"
+      GIT_REPO=$(echo "$2" | cut -d'/' -f 2 | cut -d'.' -f 1)
+      cd "$GIT_REPO"
+      return 0
+    else
+      cd "$BASEPATH$WORKDIR"
+      git clone "$2"
+      GIT_REPO=$(echo "$2" | cut -d'/' -f 2 | cut -d'.' -f 1)
+      cd "$GIT_REPO"
+      return 0
+    fi
+  else
+    echo "Wrong number of arguments"
+    return 1
+  fi
+}

@@ -1,0 +1,40 @@
+" Set number on the side and set them as relative to cursor position
+:set relativenumber
+:set number
+
+" Set ctrl-Q for ide -> needed for pointing at file in project
+sethandler <C-Q> a:ide
+
+" Select next occurrence
+sethandler <C-G> a:ide
+
+" Continue process to next brackpoint in debugger
+sethandler <C-\> a:ide
+
+" Exit insert mode
+sethandler <C-c> a:vim
+
+" Undo the undo
+sethandler <C-r> a:vim
+
+
+" Center on motions down - up - page up - page down
+map j jzz
+map k kzz
+map <C-u> <C-u>zz
+map <C-d> <C-d>zz
+
+inoremap ;; <Esc>A;<Esc>
+
+" Disable Arrow keys in Normal mode
+map <up> <nop>
+map <down> <nop>
+map <left> <nop>
+map <right> <nop>
+
+" Disable Arrow keys in Insert mode
+imap <up> <nop>
+imap <down> <nop>
+imap <left> <nop>
+imap <right> <nop>
+set surround
