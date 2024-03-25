@@ -3,42 +3,49 @@ alias cs="cd /Volumes/CaseSensitive/"
 alias int="open -a 'IntelliJ IDEA'"
 alias intdot="int ~/.dotfiles"
 
-alias regrant="~/wa/vagrant/regrant"
-autoload -Uz compinit
-fpath=(~/.rebuy/completion $fpath)
-compinit
 alias fix="./bin/php-cs-fixer fix -vvv --show-progress=dots"
 alias fixd="./bin/php-cs-fixer fix -vvv --show-progress=dots --dry-run"
 alias phpunit="vendor/bin/phpunit"
 alias psalm="composer psalm"
 
 #GIT
+# only add this
+if [[ "$(hostname)" == "rebuy-a.adduci" ]]; then
+    # regrant aliases
+    alias regrant="~/wa/vagrant/regrant"
+    alias re="regrant"
+    alias rep="re service proxy"
+    alias res="re service start"
+    alias rel="re service list"
+    alias reup="git -C ~/wa/vagrant pull"
+    alias ryclt="~/wa/rebuy-clt/bin/console"
+
+    cstart() {
+        colima stop
+
+        echo 'Remove Docker.sock'
+        sudo rm -rf /var/run/docker.sock
+        echo 'Docker.sock removed'
+        echo 'Linking docker.sock'
+        sudo ln -s "$HOME/.colima/docker.sock" /var/run/docker.sock
+    #    echo 'Docker.sock linked'
+        colima start --disk 10
+        display_notification "colima start"
+    }
+
+    display_notification() {
+    	 echo "$1" | xargs -I{}  osascript -e 'display notification "{} is done" with title "Terminal"'
+    }
+
+    # regrant completions
+    autoload -Uz compinit
+    fpath=(~/.rebuy/completion $fpath)
+    compinit
+fi
 
 alias gitm="git switch main && git pull"
 alias pull="git pull"
 alias push="git push"
-
-regrantupdate() {
-  DIR="/Volumes/CaseSensitive/wa/vagrant"
-  git --git-dir="$DIR/.git" -C "$DIR" pull
-}
-
-cstart() {
-    colima stop
-    
-    echo 'Remove Docker.sock'
-    sudo rm -rf /var/run/docker.sock
-    echo 'Docker.sock removed'
-    echo 'Linking docker.sock'
-    sudo ln -s "$HOME/.colima/docker.sock" /var/run/docker.sock
-#    echo 'Docker.sock linked'
-    colima start --disk 10
-    display_notification "colima start"
-}
-
-display_notification() {
-	 echo "$1" | xargs -I{}  osascript -e 'display notification "{} is done" with title "Terminal"'
-}
 
 feat() {
     LINEAR_ID=$1

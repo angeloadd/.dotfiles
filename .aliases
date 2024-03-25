@@ -55,7 +55,7 @@ alias xtest="XDEBUG_SESSION=1 vendor/bin/phpunit"
 alias xltest="XDEBUG_SESSION=1 php artisan test"
 
 # Switch php
-alias swphp="~/.dotfiles/scripts/js/phpversion.js"
+alias swphp="~/.dotfiles/.scripts/js/phpversion.js"
 
 # Docker compose
 alias dockup="docker compose up -d"

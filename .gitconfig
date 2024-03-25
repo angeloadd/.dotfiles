@@ -1,9 +1,13 @@
 [user]
 	name = Angelo
     email = angelo.adduci1991@gmail.com
+	signingkey = ~/.ssh/id_rsa.pub
 
-[includeIf "gitdir:/Volumes/CaseSensitive/wa/"]
-    path = ~/.dotfiles/work/rebuy/.gitconfig.rebuy
+[includeIf "gitdir:*/wa/"]
+    path = ~/.dotfiles/.work/rebuy/.gitconfig.rebuy
+
+[init]
+    defaultBranch = main
 
 [core]
 	editor = vim
@@ -42,3 +46,5 @@
 [credential "https://gist.github.com"]
 	helper = 
 	helper = !/opt/homebrew/bin/gh auth git-credential
+[gpg]
+	format = ssh
