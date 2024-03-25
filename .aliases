@@ -60,12 +60,6 @@ alias swphp="~/.dotfiles/.scripts/js/phpversion.js"
 # Docker compose
 alias dockup="docker compose up -d"
 
-# Git Aliases
-alias gcm="git commit -m"
-alias gall="git add ."
-alias ga="git add"
-alias wip="git add . && git commit -m'Wip'"
-
 # Check port
 # put lsof qua
 

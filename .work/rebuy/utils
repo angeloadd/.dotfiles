@@ -43,10 +43,6 @@ if [[ "$(hostname)" == "rebuy-a.adduci" ]]; then
     compinit
 fi
 
-alias gitm="git switch main && git pull"
-alias pull="git pull"
-alias push="git push"
-
 feat() {
     LINEAR_ID=$1
 

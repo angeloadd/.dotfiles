@@ -80,3 +80,26 @@ clone() {
     return 1
   fi
 }
+
+
+
+# Git Aliases
+alias addg="git add"
+alias addall="git add ."
+alias wip="git add . && git commit -m'Wip'"
+alias gitm="git switch main && git pull"
+alias pull="git pull"
+alias push="git push"
+
+branch() {
+  git switch -c $1
+}
+
+switch() {
+  git switch $1
+}
+
+commit() {
+  message="$@"
+  git commit -m "$message"
+}
