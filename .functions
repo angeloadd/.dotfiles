@@ -20,13 +20,6 @@ puts() {
   esac
 }
 
-enc(){
-  openssl enc -aes-256-cbc -salt -a -in ./enc/dec/$1 -out ./enc/$1.enc
-}
-dec(){
-  openssl enc -d -aes-256-cbc -a -in ./enc/$1.enc -out ./enc/dec/$1
-}
-
 # need fzf as dep
 look(){
 	DIR=$(find /V*/C*/{src,wa} -maxdepth 1 -type d | fzf --print0 | xargs echo)
