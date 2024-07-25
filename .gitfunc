@@ -81,8 +81,6 @@ clone() {
   fi
 }
 
-
-
 # Git Aliases
 alias addg="git add"
 alias addall="git add ."
@@ -102,4 +100,8 @@ switch() {
 commit() {
   message="$@"
   git commit -m "$message"
+}
+
+fbranch() {
+  git branch | grep -v "^\*" | fzf --height=20% --reverse --info=inline | xargs git switch
 }

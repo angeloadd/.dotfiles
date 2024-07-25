@@ -13,9 +13,6 @@
 	editor = vim
 	excludesfile = ~/.dotfiles/.gitignore
 
-[init]
-	defaultBranch = master
-
 [color]
 	ui = auto
 
@@ -48,3 +45,6 @@
 	helper = !/opt/homebrew/bin/gh auth git-credential
 [gpg]
 	format = ssh
+
+[maintenance]
+	repo = /Volumes/CaseSensitive/wa/web

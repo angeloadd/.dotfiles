@@ -72,3 +72,5 @@ brew install fzf
 $(brew --prefix)/opt/fzf/install
 
 brew install stow
+
+curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | bash

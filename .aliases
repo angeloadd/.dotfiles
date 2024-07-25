@@ -1,9 +1,12 @@
 #ALIASES
 
 # moving in FS
+# enable zoxide
+alias cd="z"
 alias ll="ls -laF"
 alias ..="cd .."
 alias ...="cd ../.."
+alias show10="history 1 | awk '{print $2}' | sort | uniq -c | sort -nr | head -10"
 
 # switch shell type
 alias swbash="chsh -s /bin/bash"
@@ -17,6 +20,7 @@ alias zs="source ~/.zshrc"
 
 alias dcu="docker-compose up"
 alias dcd="docker-compose down"
+alias sail='sh $([ -f sail ] && echo sail || echo vendor/bin/sail)'
 
 # Open editor alias:
 # PhpStorm:

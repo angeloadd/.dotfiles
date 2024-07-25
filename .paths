@@ -3,6 +3,7 @@
 export PATH="$HOME/bin:$PATH"
 export PATH="/usr/local/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
+export PATH="/Users/a.adduci/.local/bin:$PATH"
 
 # Add composer to path
 export PATH="$HOME/.composer/vendor/bin:$PATH"
@@ -20,5 +21,7 @@ export PATH="/usr/local/mysql/bin:$PATH"
 # this is needed to use gomodule and install correctly go packages
 GOROOT="$(brew --prefix golang)/libexec"
 # export GOPATH directory wehre binaries are installed => example godoc
-export GOPATH="$GOROOT"
-export PATH="$GOROOT/bin:$PATH"
+export GOPATH="$HOME/.go"
+export GOMODCACHE="$GOPATH/pkg/mod"
+export GOBIN="$GOPATH/bin"
+export PATH="$GOROOT/bin:$GOPATH/bin:$PATH"
