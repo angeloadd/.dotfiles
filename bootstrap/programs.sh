@@ -7,8 +7,7 @@ brew install --cask phpstorm
 brew install --cask postman
 
 # Install nerd-font via homebrew for macOs.
-brew tap homebrew/cask-fonts
-brew install --cask font-hack-nerd-font
+brew install font-hack-nerd-font
 
 # Then install prompt framework
 brew install starship
@@ -29,11 +28,10 @@ source $(brew --prefix nvm)/nvm.sh
 
 # install php versions
 brew install php
-brew install php@8.0
-brew install php@8.1
 brew install php@8.2
 brew install php@8.3
-swphp 8.2
+brew install php@8.4
+swphp 8.3
 
 # install xdebug
 mkdir -p $(exec pecl config-get ext_dir)
@@ -65,6 +63,7 @@ brew install --cask malwarebytes
 brew install ripgrep
 brew install fd
 brew install jesseduffield/lazygit/lazygit
+brew install neovim
 
 # Enable fuzzy finder
 brew install fzf

@@ -1,8 +1,15 @@
 #ALIASES
 
 # moving in FS
-# enable zoxide
-alias cd="z"
+# enable zoxide with fallback
+function cd() {
+    if command -v z &> /dev/null; then
+        z "$@"
+    else
+        builtin cd "$@"
+    fi
+}
+
 alias ll="ls -laF"
 alias ..="cd .."
 alias ...="cd ../.."

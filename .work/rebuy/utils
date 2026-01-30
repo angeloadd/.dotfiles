@@ -10,7 +10,7 @@ alias psalm="composer psalm"
 
 #GIT
 # only add this
-if [[ "$(hostname)" == "rebuy-a.adduci" ]]; then
+if [[ "$(hostname)" == "a-adduci-rebuy" ]]; then
     # regrant aliases
     alias regrant="~/wa/vagrant/regrant"
     alias re="regrant"
@@ -63,4 +63,63 @@ feat() {
     result="${LINEAR_ID}_${NAME}"
 
     git switch -c $result
+}
+
+silos() {
+  // create a switch with command: release and option dry-run -D, prepare -P and finalize -F
+  // second command should be silo compile, package, verify, install with option --with-tests or not  mvn clean compile -Dmaven.javadoc.skip=true -Dmaven.test.skip=true
+  // silo test with filter mvn verify -pl silo -Dtest=DoNotChangeThis -Dsurefire.failIfNoSpecifiedTests=false -Dit.test=CustomerControllerTest#update_should_set_locale
+
+  case "$1" in
+      release)
+        echo "Executing release process..."
+        case "$2" in
+          --dry-run|-D)
+            echo "Running in dry-run mode..."
+            mvn release:prepare -DdryRun=true -Dresume=false -DskipTests=true
+            ;;
+          --prepare|-P)
+            echo "Preparing release..."
+            mvn release:clean
+            mvn clean
+            mvn release:prepare -Darguments="-Dspring.profiles.active=testing -DskipTests=true"
+            ;;
+          --finalize|-F)
+            echo "Finalizing release..."
+            mvn release:perform -Darguments="-Dspring.profiles.active=testing -DskipTests=true"
+        esac
+        ;;
+      package|install|compile)
+        echo "Packaging the application..."
+        case "$2" in
+            --with-tests|-T)
+               mvn clean "$2" -Darguments=-Dmaven.javadoc.skip=true -Dmaven.test.skip=false
+              ;;
+            --omit-tests|-O)
+               mvn clean "$2" -Darguments=-Dmaven.javadoc.skip=true -Dmaven.test.skip=true
+              ;;
+            *)
+              echo "Invalid option. Please use --with-tests or --without-tests."
+        esac
+        ;;
+      test)
+        echo "Running tests..."
+        case "$2" in
+          --filter)
+            mvn verify -pl silo -Dtest=DoNotChangeThis -Dsurefire.failIfNoSpecifiedTests=false -Dit.test="$3"
+            ;;
+          *)
+            mvn clean verify
+            ;;
+        esac
+        ;;
+      *)
+        echo "Invalid option. Please use one of the following: release, package, compile, install, test."
+        ;;
+    esac
+
+}
+
+print_warnings_phpunit() {
+  echo "displayDetailsOnTestsThatTriggerDeprecations=\"true\"\ndisplayDetailsOnTestsThatTriggerErrors=\"true\"\ndisplayDetailsOnTestsThatTriggerNotices=\"true\"\ndisplayDetailsOnTestsThatTriggerWarnings=\"true\"\ndisplayDetailsOnPhpunitDeprecations=\"true\"" | pbcopy
 }

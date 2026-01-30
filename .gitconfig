@@ -1,13 +1,13 @@
 [user]
-	name = Angelo
+    name = Angelo
     email = angelo.adduci1991@gmail.com
-	signingkey = ~/.ssh/id_rsa.pub
+    signingkey = C650ADB102907450
 
 [includeIf "gitdir:*/wa/"]
     path = ~/.dotfiles/.work/rebuy/.gitconfig.rebuy
 
 [init]
-    defaultBranch = main
+	defaultBranch = main
 
 [core]
 	editor = vim
@@ -43,8 +43,11 @@
 [credential "https://gist.github.com"]
 	helper = 
 	helper = !/opt/homebrew/bin/gh auth git-credential
-[gpg]
-	format = ssh
-
 [maintenance]
 	repo = /Volumes/CaseSensitive/wa/web
+[commit]
+    gpgsign = true
+[tag]
+    gpgSign = true
+[gpg]
+	program = /opt/homebrew/bin/gpg

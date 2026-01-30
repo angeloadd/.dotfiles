@@ -35,3 +35,28 @@ source ~/.dotfiles/.gitfunc
 initcol(){
  colima start --mount /Volumes/CaseSensitive/src:w --very-verbose --vm-type=vz --mount-type=virtiofs
 }
+
+fileh(){
+lsof > /tmp/lsof.log
+cat /tmp/lsof.log | awk '{ print $2 " " $1; }' | sort -rn | uniq -c | sort -rn | head -20
+}
+
+myclaude() {
+    if ! type "claude" > /dev/null; then
+        npm install -g @anthropic-ai/claude-code
+    fi
+#    local apiKey="YOUR_API_TOKEN_FROM_LLM_GATEWAY"
+    # Change the model:
+    # export ANTHROPIC_MODEL=claude-3-7-sonnet-20250219
+    export ANTHROPIC_BASE_URL=https://llm-gateway.production.rebuy.cloud/passthrough/anthropic
+#    if [[ ! -e ~/.claude.json ]] ; then
+#        print -n "~/.claude.json does not exist yet, generating: "
+#        local jsonString=$(jq -n \
+#            --arg apiKey "$apiKey" \
+#            '{"primaryApiKey":$apiKey,"hasCompletedOnboarding":true}'
+#        )
+#        print "$jsonString"
+#        echo $jsonString > ~/.claude.json
+#    fi
+    claude
+}
