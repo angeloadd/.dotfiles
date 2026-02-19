@@ -1,0 +1,19 @@
+#theme
+theme = dracula
+
+#window
+fullscreen = true
+
+#keybindings
+keybind = cmd+f=text:look\n
+keybind = cmd+.=text:int .\n
+keybind = cmd+g=text:fbranch\n
+
+quit-after-last-window-closed = true
+window-new-tab-position = end
+window-save-state = never
+
+font-size = 22
+# font-thicken = true
+
+shell-integration = zsh
