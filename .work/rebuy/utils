@@ -120,6 +120,6 @@ silos() {
 
 }
 
-print_warnings_phpunit() {
+phpwarnings() {
   echo "displayDetailsOnTestsThatTriggerDeprecations=\"true\"\ndisplayDetailsOnTestsThatTriggerErrors=\"true\"\ndisplayDetailsOnTestsThatTriggerNotices=\"true\"\ndisplayDetailsOnTestsThatTriggerWarnings=\"true\"\ndisplayDetailsOnPhpunitDeprecations=\"true\"" | pbcopy
 }

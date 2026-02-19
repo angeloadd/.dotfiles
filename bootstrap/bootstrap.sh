@@ -7,6 +7,7 @@
 # Voilat
 sh ./programs.sh
 sh ./macos.sh
+sh ../misc/macos/install.sh
 
 # run stow to create a symlink of dotfiles as it is the home directory
 # everything is linked but bootstrap folder misc folder (.stow-local-ignore) and default ignored

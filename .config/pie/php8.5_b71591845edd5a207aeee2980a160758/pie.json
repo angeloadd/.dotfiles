@@ -1,0 +1,11 @@
+{
+    "require": {
+        "apcu/apcu": "^5.1",
+        "php-amqp/php-amqp": "dev-latest",
+        "igbinary/igbinary": "3.2.17RC1",
+        "phpredis/phpredis": "^6.3",
+        "xdebug/xdebug": "^3.5",
+        "imagick/imagick": "^3.8",
+        "msgpack/msgpack-php": "dev-master"
+    }
+}

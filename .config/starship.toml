@@ -144,6 +144,10 @@ format = "[  ](green)[$symbol($version)]($style)"
 [lua]
 format = "[  ](green)[$symbol($version)]($style)"
 
+# Vagrant repo.
+[vagrant]
+format = "[  ](green)[$symbol($version)]($style)"
+
 # Go repo.
 [golang]
 format = "[  ](green)[$symbol($version)]($style)"

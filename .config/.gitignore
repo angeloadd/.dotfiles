@@ -2,3 +2,6 @@ nodemon.json
 zed/
 composer/.htaccess
 composer/auth.json
+github-copilot/*
+envman/*
+pie/**/vendor
