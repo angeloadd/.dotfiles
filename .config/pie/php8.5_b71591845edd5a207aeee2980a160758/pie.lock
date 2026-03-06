@@ -362,16 +362,16 @@
         },
         {
             "name": "xdebug/xdebug",
-            "version": "3.5.0",
+            "version": "3.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/xdebug/xdebug.git",
-                "reference": "32dcc3da7bbff171f67e803f28ef4c098f8e2caf"
+                "reference": "af9280fff4eeb014309f8f66633c5e8f40e88b04"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/xdebug/xdebug/zipball/32dcc3da7bbff171f67e803f28ef4c098f8e2caf",
-                "reference": "32dcc3da7bbff171f67e803f28ef4c098f8e2caf",
+                "url": "https://api.github.com/repos/xdebug/xdebug/zipball/af9280fff4eeb014309f8f66633c5e8f40e88b04",
+                "reference": "af9280fff4eeb014309f8f66633c5e8f40e88b04",
                 "shasum": ""
             },
             "require": {
@@ -380,15 +380,14 @@
             "type": "php-ext-zend",
             "notification-url": "https://packagist.org/downloads/",
             "php-ext": {
-                "priority": 90,
-                "configure-options": []
+                "priority": 90
             },
             "license": [
                 "Xdebug-1.03"
             ],
             "description": "Xdebug is a debugging and productivity extension for PHP",
             "support": {
-                "source": "https://github.com/xdebug/xdebug/tree/3.5.0"
+                "source": "https://github.com/xdebug/xdebug/tree/3.5.1"
             },
             "funding": [
                 {
@@ -404,7 +403,7 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2025-12-04T15:08:14+00:00"
+            "time": "2026-02-03T15:42:05+00:00"
         }
     ],
     "packages-dev": [],

@@ -2,7 +2,7 @@
 
 brew upgrade
 
-brew install --cask kitty
+brew install --cask ghostty
 brew install --cask phpstorm
 brew install --cask postman
 
@@ -18,9 +18,9 @@ brew install zsh-autosuggestions
 # git large files manager
 brew install git-lfs
 
-# install node latest and node 16
+# install node latest and node
 brew install node
-brew install node@18
+brew install node@22
 
 brew install nvm
 mkdir ~/.nvm
@@ -31,11 +31,11 @@ brew install php
 brew install php@8.2
 brew install php@8.3
 brew install php@8.4
-swphp 8.3
+swphp 8.5
 
 # install xdebug
-mkdir -p $(exec pecl config-get ext_dir)
-pecl install xdebug
+brew install pie
+pie install xdebug/xdebug
 
 # install composer
 brew install composer
@@ -53,8 +53,7 @@ curl https://sh.rustup.rs -sSf | sh
 cargo install tmux-sessionizer
 
 brew install --cask karabiner-elements
-brew install --cask nordpass
-brew install --cask rectangle
+brew install --cask bitwarden
 brew install --cask appcleaner
 brew install --cask malwarebytes
 #install bitdefender virus scanner from apple store
@@ -62,14 +61,19 @@ brew install --cask malwarebytes
 ## some utils to have
 brew install ripgrep
 brew install fd
-brew install jesseduffield/lazygit/lazygit
-brew install neovim
+brew install jq
+#brew install jesseduffield/lazygit/lazygit
+#brew install neovim
 
 # Enable fuzzy finder
 brew install fzf
 # To install useful key bindings and fuzzy completion:
 $(brew --prefix)/opt/fzf/install
 
+# This mirror the .config in ~
+# See https://savannah.gnu.org/git/?group=stow
 brew install stow
 
+# use z as cd
+# see https://github.com/ajeetdsouza/zoxide
 curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | bash

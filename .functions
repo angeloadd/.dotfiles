@@ -3,23 +3,6 @@ mkcd() {
   cd $1
 }
 
-phpini() {
-  php --ini | grep "Loaded Configuration File: "
-}
-
-puf() {
-  phpunit --filter $1
-}
-
-puts() {
-  case $1 in
-    "-i") phpunit --testsuite integration;;
-    "-u") phpunit --testsuite unit;;
-    "-a") phpunit --testsuite unit;;
-    *) phpunit --testsuite $1;;
-  esac
-}
-
 # need fzf as dep
 look(){
 	DIR=$(find /V*/C*/{src,wa} -maxdepth 1 -type d | fzf --print0 | xargs echo)
