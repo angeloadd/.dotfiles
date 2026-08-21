@@ -16,11 +16,11 @@ source ~/.dotfiles/.gitfunc
 
 # Start colima and enable writing to src folder to be able to sync filesystems
 initcol(){
- colima start --mount /Volumes/CaseSensitive/src:w --very-verbose --vm-type=vz --mount-type=virtiofs
+ colima start --mount /Volumes/CaseSensitive/src:w --very-verbose --vm-type=vz --mount-type=virtiofs --disk 10 --memory 4
 }
 
 fileh(){
-lsof > /tmp/lsof.log
+sudo lsof > /tmp/lsof.log
 cat /tmp/lsof.log | awk '{ print $2 " " $1; }' | sort -rn | uniq -c | sort -rn | head -20
 }
 

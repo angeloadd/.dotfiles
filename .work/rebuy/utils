@@ -29,7 +29,7 @@ if [[ "$(hostname)" == "a-adduci-rebuy" ]]; then
         echo 'Linking docker.sock'
         sudo ln -s "$HOME/.colima/docker.sock" /var/run/docker.sock
     #    echo 'Docker.sock linked'
-        colima start --disk 10
+        colima start --disk 10 --memory 4
         display_notification "colima start"
     }
 

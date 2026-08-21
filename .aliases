@@ -58,3 +58,5 @@ alias dockup="docker compose up -d"
 #alias intvim="int ~/.config/nvim"
 #alias vimdot="cd ~/.dotfiles && vim ~/.dotfiles"
 #alias vimn="cd ~/.config/nvim && vim ~/.config/nvim"
+
+alias serena-cc='uvx -p 3.13 --from git+https://github.com/oraios/serena serena start-mcp-server --project-from-cwd --context claude-code'
