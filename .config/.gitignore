@@ -1,7 +1,22 @@
-nodemon.json
-zed/
-composer/.htaccess
-composer/auth.json
-github-copilot/*
-envman/*
-pie/**/vendor
+# Only these files are stowed into ~/.config; everything else apps write
+# there now lives natively outside this repo. Deny everything by default
+# and only allow the specific files worth versioning, as a backstop in
+# case something ever gets created directly in this directory again.
+*
+
+!.gitignore
+
+!gh/
+!gh/config.yml
+
+!ghostty/
+!ghostty/config/
+!ghostty/config/config
+
+!karabiner/
+!karabiner/karabiner.json
+
+!kitty/
+!kitty/**
+
+!starship.toml
